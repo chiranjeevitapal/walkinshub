@@ -2,60 +2,25 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <title>Walkins Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>
-    <%= htmlWebpackPlugin.options.title %>
-  </title>
-
-  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
-
-  <% if (webpackConfig.htmlElements.headTags) { %>
-    <!-- Configured Head Tags  -->
-    <%= webpackConfig.htmlElements.headTags %>
-      <% } %>
-
-        <!-- base url -->
-        <!--base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>"-->
-        <base href="/">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <style>
-          body {
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <style>
+        body {
             padding-top: 60px;
-          }
-        </style>
+        }
+    </style>
 </head>
 
 <body>
 
-  <walkinshub-app>
-    Loading...
-  </walkinshub-app>
+    <walkinshub-app><i class="fa fa-cog fa-spin fa-5x fa-fw" style="margin-left:45%; margin-top:15%;"></i></walkinshub-app>
 
-  <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
-  <script>
-    (function(A, n, g, u, l, a, r) {
-      A.GoogleAnalyticsObject = r;
-      A[l] = A[l] || function() {
-        (A[l].q = A[l].q || []).push(arguments)
-      }, A[l].l = 1 * new Date();
-      a = n.createElement(g),
-        r = n.getElementsByTagName(g)[0];
-      a.async = 1;
-      a.src = u;
-      r.parentNode.insertBefore(a, r)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-71073175-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-  <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
-    <!-- Webpack Dev Server reload -->
-    <script src="/webpack-dev-server.js"></script>
-    <% } %>
 
 
 </body>
