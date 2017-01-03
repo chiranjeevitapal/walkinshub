@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HomeComponent }      from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
+import { RegisterComponent } from './register/register.component';
 import { routing } from './app.routing';
 import { HomeService } from './home/home.service';
 import { UploadService } from './upload/upload.service';
@@ -20,7 +21,7 @@ import { AppComponent } from './app.component';
         HttpModule,
         routing
     ],
-    declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, JobFilterPipe],
+    declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, JobFilterPipe],
     providers: [HomeService, UploadService],
     bootstrap: [AppComponent],
 })
