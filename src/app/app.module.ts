@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { routing } from './app.routing';
 import { HomeService } from './home/home.service';
 import { UploadService } from './upload/upload.service';
+import { RegisterService } from './register/register.service';
 import {JobFilterPipe} from './pipes/jobfilter.pipe';
 
 import { AppComponent } from './app.component';
@@ -22,7 +23,7 @@ import { AppComponent } from './app.component';
         routing
     ],
     declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, JobFilterPipe],
-    providers: [HomeService, UploadService],
+    providers: [HomeService, UploadService, RegisterService],
     bootstrap: [AppComponent],
 })
 

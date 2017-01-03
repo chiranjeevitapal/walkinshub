@@ -2,13 +2,14 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http, Response, RequestOptions  } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Walkin } from '../model/walkin';
+import {Globals} from '../globals';
 
 @Injectable()
 export class HomeService {
     //urls
     private jobsListUrl = '/api/walkinsAll';
     private host= '';
-    private port= '8090';
+    private port= Globals.NODE_PORT;
 
     constructor(private http: Http) {
       this.host = 'http://'+window.location.hostname+':'+this.port;

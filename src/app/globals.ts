@@ -1,3 +1,3 @@
-'use strict';
-
-export var appDir='app';
+export class Globals {
+   public static get NODE_PORT(): string { return '8090'; }
+}

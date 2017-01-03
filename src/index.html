@@ -2,24 +2,36 @@
 <html>
 
 <head>
-    <base href="/">
-    <title>Walkins Hub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Walkins Hub</title>
+    <base href="/">
+    <link rel="shortcut icon" type="image/png" href="assets/icon/favicon.ico" />
     <style>
         body {
             padding-top: 60px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        .center-all {
+            padding: 50%;
+            margin: -8px;
+            width: 16px;
+            height: 16px;
         }
     </style>
 </head>
 
 <body>
-
-    <walkinshub-app><i class="fa fa-cog fa-spin fa-5x fa-fw" style="margin-left:45%; margin-top:15%;"></i></walkinshub-app>
-
-
-
-
+    <walkinshub-app>
+        <div class="center-all">
+            <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+        </div>
+    </walkinshub-app>
 </body>
 
 </html>
