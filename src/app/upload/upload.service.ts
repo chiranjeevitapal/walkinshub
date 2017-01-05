@@ -9,6 +9,7 @@ export class UploadService {
     private jobsListUrl = '/api/walkinsAll';
     private postWalkinUrl = '/api/postWalkin';
     private scrapeWalkinUrl = '/api/scrape';
+    private scrapeAllWalkinsUrl = '/api/scrapeAll';
 
     private host= '';
     private port= '8090';
@@ -33,7 +34,6 @@ export class UploadService {
             .map(this.extractData)
             .catch(this.handleError);
     }
-
 
     private extractData(res: Response) {
         let body = res.json();

@@ -12,9 +12,11 @@ export class UploadComponent implements OnInit {
     public myForm: FormGroup;
     public submitted: boolean;
     public events: any[] = [];
+    public websites: String[];
     errorMessage: string;
-    constructor(private formBuilder: FormBuilder, private uploadService: UploadService) { }
+    constructor(private router: Router, private formBuilder: FormBuilder, private uploadService: UploadService) { }
     ngOnInit() {
+        this.websites = ['todaywalkins'];
         this.myForm = this.formBuilder.group({
             title: [''],
             date: [''],
@@ -34,9 +36,10 @@ export class UploadComponent implements OnInit {
             contactDetails: [''],
             jobRequirements: [''],
             candidateProfile: [''],
-            websiteName: [''],
+            websiteName: [this.websites[0]],
             websiteLink: ['']
         });
+
     }
 
     save(model: Walkin, isValid: boolean) {
@@ -69,8 +72,12 @@ export class UploadComponent implements OnInit {
                         website: [''],
                         contactDetails: [''],
                         jobRequirements: [''],
-                        candidateProfile: ['']
+                        candidateProfile: [''],
+                        websiteName: [this.websites[0]],
+                        websiteLink: ['']
                     });
+                    let link = ['/upload'];
+                    this.router.navigate(link);
                 },
                 error => {
                     this.errorMessage = <any>error;
@@ -78,7 +85,8 @@ export class UploadComponent implements OnInit {
         }
     }
 
-    scrapeTodayWalkins(model: Walkin) {
+
+    scrapeWalkin(model: Walkin) {
         this.uploadService.scrapeWeb(model.websiteName, model.websiteLink)
             .subscribe(
             data => {

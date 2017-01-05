@@ -3,8 +3,16 @@
     <div class="row well">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="form-group">
+
                 <label class="control-label" for="websiteName">Walkin Name</label>
-                <input type="text" formControlName="websiteName" class="form-control">
+                <!--select id="websiteName" formControlName="websiteName" class="form-control">
+                  <option *ngFor="let website of websites" [value]="website">{{website}}</option>
+                </select-->
+
+                <select id="websiteName" formControlName="websiteName" class="form-control">
+                  <option *ngFor="let website of websites" [value]="website">{{website}}</option>
+                </select>
+
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -13,7 +21,7 @@
                 <input type="text" formControlName="websiteLink" class="form-control">
             </div>
         </div>
-        <button type="button" class="btn btn-md btn-danger" (click)="scrapeTodayWalkins(myForm.value)">Scrape Walkins</button>
+        <button type="button" class="btn btn-md btn-danger" (click)="scrapeWalkin(myForm.value)">Scrape Walkins</button>
     </div>
     <br/><br/>
 
