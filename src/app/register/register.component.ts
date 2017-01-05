@@ -16,7 +16,9 @@ export class RegisterComponent implements OnInit {
             email: ['', Validators.compose([Validators.pattern("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"), Validators.required])],
             password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(15), Validators.required])],
             active: false,
-            role: ['user']
+            role: ['user'],
+            subscribe: true,
+            passString:''
         });
     }
     register(model: Register, isValid: boolean) {
@@ -28,13 +30,14 @@ export class RegisterComponent implements OnInit {
 
         if (isValid != undefined && isValid) {
             model._id = '' + model.email;
+            model.passString = '' + model.password;
             this.registerService.registerUser(model)
                 .subscribe(
                 data => {
                     if (data.code == 11000) {
                         alert("Email id is already in use");
                     } else {
-                        alert("A confirmation email is sent to your registered email address.");
+                        alert(model.email +" is successfully subscribed.");
                         let link = ['/home'];
                         this.router.navigate(link);
                     }
