@@ -5,6 +5,7 @@ import { HomeComponent }      from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
+import { PostJobComponent } from './home/postjob.component';
 
 const appRoutes: Routes = [
     {
@@ -13,16 +14,22 @@ const appRoutes: Routes = [
     }, {
         path: "dashboard",
         component: DashboardComponent
-    },{
-        path: "upload",
+    }, {
+        path: "uploadChethan",
         component: UploadComponent
-    },{
+    }, {
         path: "register",
         component: RegisterComponent
-    },{
+    }, {
+        path: "postJob",
+        component: PostJobComponent
+    }, {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
+    }, {
+        path: "**",
+        redirectTo: '/home'
     }
 ];
 

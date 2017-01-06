@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HomeComponent }      from './home/home.component';
+import { PostJobComponent }      from './home/postjob.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
@@ -22,7 +23,7 @@ import { AppComponent } from './app.component';
         HttpModule,
         routing
     ],
-    declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, JobFilterPipe],
+    declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent, JobFilterPipe],
     providers: [HomeService, UploadService, RegisterService],
     bootstrap: [AppComponent],
 })

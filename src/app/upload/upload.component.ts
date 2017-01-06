@@ -76,7 +76,7 @@ export class UploadComponent implements OnInit {
                         websiteName: [this.websites[0]],
                         websiteLink: ['']
                     });
-                    let link = ['/upload'];
+                    let link = ['/uploadChethan'];
                     this.router.navigate(link);
                 },
                 error => {
