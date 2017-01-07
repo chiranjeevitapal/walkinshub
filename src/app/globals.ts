@@ -1,3 +1,3 @@
 export class Globals {
-   public static get NODE_PORT(): string { return '8090'; }
+   public static get NODE_PORT(): string { return '80'; }
 }

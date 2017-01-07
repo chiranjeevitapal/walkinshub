@@ -72,6 +72,7 @@ export class HomeComponent {
         this.filter(arg);
     }
     resetFilters() {
-        this.filteredJobs = this.jobs;
+        //this.filteredJobs = this.jobs;
+        window.location.reload();
     }
 }
