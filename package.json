@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Code base for walkins hub",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 80",
+    "start": "webpack-dev-server --inline --progress --port 8081",
     "test": "karma start",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "start:prod": "http-server ./dist -p 80 -c-1 --cors"

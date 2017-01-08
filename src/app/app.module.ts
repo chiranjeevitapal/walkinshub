@@ -12,6 +12,8 @@ import { HomeService } from './home/home.service';
 import { UploadService } from './upload/upload.service';
 import { RegisterService } from './register/register.service';
 import {JobFilterPipe} from './pipes/jobfilter.pipe';
+import {OrderBy} from './pipes/orderby.pipe';
+import {UniquePipe} from './pipes/unique.pipe';
 
 import { AppComponent } from './app.component';
 
@@ -23,7 +25,8 @@ import { AppComponent } from './app.component';
         HttpModule,
         routing
     ],
-    declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent, JobFilterPipe],
+    declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent,
+      JobFilterPipe, OrderBy, UniquePipe],
     providers: [HomeService, UploadService, RegisterService],
     bootstrap: [AppComponent],
 })

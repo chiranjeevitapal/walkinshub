@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import { Walkin } from '../model/walkin';
 import { HomeService } from './home.service';
 import {JobFilterPipe} from '../pipes/jobfilter.pipe';
+import {OrderBy} from '../pipes/orderby.pipe';
+import {UniquePipe} from '../pipes/unique.pipe';
 
 @Component({
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    styleUrls: ['./home.component.css'],
+    templateUrl: './home.component.html'
 })
 export class HomeComponent {
     errorMessage: string;

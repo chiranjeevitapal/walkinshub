@@ -4,21 +4,21 @@
             <label class="control-label" for="location">Location</label>
             <select id="location" class="form-control" name="location" #loc (change)="filterByLocation(loc.value); loc.value=''">
               <option [ngValue]="null">All</option>
-              <option *ngFor="let job of jobs" [value]="job.location">{{job.location}}</option>
+              <option *ngFor="let job of jobs | unique:'location' | orderBy : ['location']" [value]="job.location">{{job.location}}</option>
             </select>
         </div>
         <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
             <label class="control-label" for="experience">Experience</label>
             <select id="experience" class="form-control" name="experience" #exp (change)="filterByExperience(exp.value); exp.value=''">
               <option [ngValue]="null">All</option>
-              <option *ngFor="let job of jobs" [value]="job.experience">{{job.experience}}</option>
+              <option *ngFor="let job of jobs | unique:'experience' | orderBy : ['experience']" [value]="job.experience">{{job.experience}}</option>
             </select>
         </div>
         <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
             <label class="control-label" for="eligibility">Eligibility</label>
             <select id="eligibility" class="form-control" name="eligibility" #ele (change)="filterByEligibility(ele.value); ele.value=''">
               <option [ngValue]="null">All</option>
-              <option *ngFor="let job of jobs" [value]="job.eligibility">{{job.eligibility}}</option>
+              <option *ngFor="let job of jobs | unique:'eligibility' | orderBy : ['eligibility']" [value]="job.eligibility">{{job.eligibility}}</option>
             </select>
         </div>
         <div class="form-group col-xs-12 col-sm-12 col-md-1 col-lg-1 ">
@@ -26,8 +26,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let job of (filteredJobs | jobfilter)" (click)="seeDetails(job)" title="click for details">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let job of filteredJobs | orderBy : ['-date']" (click)="seeDetails(job)" title="click for details">
             <div class="alert alert-info">
+                <h6><i class="pull-right">Posted On: {{job.date | date: 'dd/MM/yyyy'}}</i></h6>
                 <h4>{{job.company}}</h4>
                 <p>{{job.position}}</p>
                 <p><b>{{job.location}}  <i class="pull-right">{{job.experience}}</i></b></p>
@@ -79,11 +80,11 @@
         </li>
         <li class="list-group-item list-group-item-default" *ngIf="walkin.lastDate != ''">
             <b class="list-group-item-heading">Last Date</b>
-            <p class="list-group-item-text">{{walkin.lastDate}}</p>
+            <p class="list-group-item-text">{{walkin.lastDate | date: 'dd/MM/yyyy'}}</p>
         </li>
         <li class="list-group-item list-group-item-default" *ngIf="walkin.walkinDate != ''">
             <b class="list-group-item-heading">Walkin Date</b>
-            <p class="list-group-item-text">{{walkin.walkinDate}}</p>
+            <p class="list-group-item-text">{{walkin.walkinDate | date: 'dd/MM/yyyy'}}</p>
         </li>
         <li class="list-group-item list-group-item-default" *ngIf="walkin.walkinTime != ''">
             <b class="list-group-item-heading">Walkin Time</b>
