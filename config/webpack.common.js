@@ -45,6 +45,12 @@ module.exports = {
             template: 'src/index.html'
         }),
 
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        }),
+
         new CopyWebpackPlugin([{
             from: 'src/assets',
             to: 'assets'

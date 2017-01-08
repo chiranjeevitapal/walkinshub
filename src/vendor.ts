@@ -8,7 +8,9 @@ import '@angular/router';
 // RxJS
 import 'rxjs';
 //jquery
-import 'jquery';
+import 'jquery';
+//Bootstrap
+import 'bootstrap/dist/js/bootstrap';
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 //fontawesome
