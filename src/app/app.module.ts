@@ -7,6 +7,7 @@ import { PostJobComponent }      from './home/postjob.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
+import { WalkinDetailsComponent } from './home/walkin.details.component';
 import { routing } from './app.routing';
 import { HomeService } from './home/home.service';
 import { UploadService } from './upload/upload.service';
@@ -26,7 +27,7 @@ import { AppComponent } from './app.component';
         routing
     ],
     declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent,
-      JobFilterPipe, OrderBy, UniquePipe],
+      WalkinDetailsComponent, JobFilterPipe, OrderBy, UniquePipe],
     providers: [HomeService, UploadService, RegisterService],
     bootstrap: [AppComponent],
 })

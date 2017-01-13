@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
 import { PostJobComponent } from './home/postjob.component';
+import { WalkinDetailsComponent } from './home/walkin.details.component';
 
 const appRoutes: Routes = [
     {
@@ -23,6 +24,9 @@ const appRoutes: Routes = [
     }, {
         path: "postJob",
         component: PostJobComponent
+    }, {
+        path: "walkin/:id",
+        component: WalkinDetailsComponent
     }, {
         path: '',
         redirectTo: '/home',

@@ -1,0 +1,73 @@
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">{{errorMessage}}</div>
+    <button (click)="goBack()" class="btn btn-md btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <h3>{{walkin.title}}</h3>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.company != ''">
+            <b class="list-group-item-heading">Company</b>
+            <p class="list-group-item-text">{{walkin.company}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.position != ''">
+            <b class="list-group-item-heading">Position</b>
+            <p class="list-group-item-text">{{walkin.position}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.location != ''">
+            <b class="list-group-item-heading">Location</b>
+            <p class="list-group-item-text">{{walkin.location}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.eligibility != ''">
+            <b class="list-group-item-heading">Eligibility</b>
+            <p class="list-group-item-text">{{walkin.eligibility}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.experience != ''">
+            <b class="list-group-item-heading">Experience</b>
+            <p class="list-group-item-text">{{walkin.experience}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.jobDescription != ''">
+            <b class="list-group-item-heading">Job Description</b>
+            <p class="list-group-item-text">{{walkin.jobDescription}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.jobRequirements != ''">
+            <b class="list-group-item-heading">Job Requirements</b>
+            <p class="list-group-item-text">{{walkin.jobRequirements}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.candidateProfile != ''">
+            <b class="list-group-item-heading">Candidate Profile</b>
+            <p class="list-group-item-text">{{walkin.candidateProfile}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.salary != ''">
+            <b class="list-group-item-heading">Salary</b>
+            <p class="list-group-item-text">{{walkin.salary}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.lastDate != ''">
+            <b class="list-group-item-heading">Last Date</b>
+            <p class="list-group-item-text">{{walkin.lastDate}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.walkinDate != ''">
+            <b class="list-group-item-heading">Walkin Date</b>
+            <p class="list-group-item-text">{{walkin.walkinDate}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.walkinTime != ''">
+            <b class="list-group-item-heading">Walkin Time</b>
+            <p class="list-group-item-text">{{walkin.walkinTime}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.companyProfile != ''">
+            <b class="list-group-item-heading">Company Profile</b>
+            <p class="list-group-item-text">{{walkin.companyProfile}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.howToApply != ''">
+            <b class="list-group-item-heading">How To Apply</b>
+            <p *ngIf="walkin.howToApply.indexOf('http') != -1"><button class="btn btn-link" (click)="openWebsite(walkin.howToApply)">{{walkin.howToApply}}</button></p>
+            <p *ngIf="walkin.howToApply.indexOf('http') == -1" class="list-group-item-text">{{walkin.howToApply}}</p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.website != ''">
+            <b class="list-group-item-heading">Website</b>
+            <p class="list-group-item-text"><button class="btn btn-link" (click)="openWebsite(walkin.website)">{{walkin.website}}</button></p>
+        </li>
+        <li class="list-group-item list-group-item-default" *ngIf="walkin.contactDetails != ''">
+            <b class="list-group-item-heading">Contact Details</b>
+            <p class="list-group-item-text">{{walkin.contactDetails}}</p>
+        </li>
+
+    </ul>
+    <button (click)="goBack()" class="btn btn-md btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>

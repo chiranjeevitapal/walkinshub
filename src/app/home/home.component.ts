@@ -33,28 +33,8 @@ export class HomeComponent {
             error => this.errorMessage = <any>error);
     }
     seeDetails(walkinObj) {
-        this.walkin = walkinObj;
-        this.showDetails = true;
-    }
-
-    goBack() {
-        this.showDetails = false;
-        let link = ['/home'];
-        this.router.navigate(link);
-    }
-
-    openWebsite(website) {
-        if (website.indexOf('http') == -1) {
-            window.open(
-                'http://' + website,
-                '_blank'
-            );
-        } else {
-            window.open(
-                website,
-                '_blank'
-            );
-        }
+      let link = ['/walkin', walkinObj._id];
+      this.router.navigate(link);
     }
 
     filter(parameter) {

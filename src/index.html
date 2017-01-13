@@ -18,20 +18,52 @@
             height: 100%;
         }
 
-        .center-all {
-            padding: 50%;
-            margin: -8px;
-            width: 16px;
-            height: 16px;
+        #pre-bootstrap {
+            background-color: #262626;
+            bottom: 0px;
+            left: 0px;
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            z-index: 999999;
+        }
+
+        #pre-bootstrap div.messaging {
+            color: #FFFFFF;
+            font-family: monospace;
+            left: 0px;
+            margin-top: -37px;
+            position: absolute;
+            right: 0px;
+            text-align: center;
+            top: 50%;
+        }
+
+        #pre-bootstrap h1 {
+            font-size: 26px;
+            line-height: 35px;
+            margin: 0px 0px 20px 0px;
+        }
+
+        #pre-bootstrap p {
+            font-size: 18px;
+            line-height: 14px;
+            margin: 0px 0px 0px 0px;
         }
     </style>
-    <script type="text/javascript" src="http://gdc.indeed.com/ads/apiresults.js"></script>
 </head>
 
 <body>
     <walkinshub-app>
-        <div class="center-all">
-            <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+        <div id="pre-bootstrap">
+            <div class="messaging">
+                <h1>
+                    Loading <i class="fa fa-cog fa-spin fa-fw"></i>
+                </h1>
+                <p>
+                    Generating Jobs !!!
+                </p>
+            </div>
         </div>
     </walkinshub-app>
 </body>

@@ -1,114 +1,37 @@
-<section *ngIf="!showDetails">
-    <div class="row">
-        <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
-            <label class="control-label" for="location">Location</label>
-            <select id="location" class="form-control" name="location" #loc (change)="filterByLocation(loc.value); loc.value=''">
+<div class="row">
+    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
+        <label class="control-label" for="location">Location</label>
+        <select id="location" class="form-control" name="location" #loc (change)="filterByLocation(loc.value); loc.value=''">
               <option [ngValue]="null">All</option>
               <option *ngFor="let job of jobs | unique:'location' | orderBy : ['location']" [value]="job.location">{{job.location}}</option>
             </select>
-        </div>
-        <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-            <label class="control-label" for="experience">Experience</label>
-            <select id="experience" class="form-control" name="experience" #exp (change)="filterByExperience(exp.value); exp.value=''">
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+        <label class="control-label" for="experience">Experience</label>
+        <select id="experience" class="form-control" name="experience" #exp (change)="filterByExperience(exp.value); exp.value=''">
               <option [ngValue]="null">All</option>
               <option *ngFor="let job of jobs | unique:'experience' | orderBy : ['experience']" [value]="job.experience">{{job.experience}}</option>
             </select>
-        </div>
-        <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
-            <label class="control-label" for="eligibility">Eligibility</label>
-            <select id="eligibility" class="form-control" name="eligibility" #ele (change)="filterByEligibility(ele.value); ele.value=''">
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
+        <label class="control-label" for="eligibility">Eligibility</label>
+        <select id="eligibility" class="form-control" name="eligibility" #ele (change)="filterByEligibility(ele.value); ele.value=''">
               <option [ngValue]="null">All</option>
               <option *ngFor="let job of jobs | unique:'eligibility' | orderBy : ['eligibility']" [value]="job.eligibility">{{job.eligibility}}</option>
             </select>
-        </div>
-        <div class="form-group col-xs-12 col-sm-12 col-md-1 col-lg-1 ">
-            <button class="brn btn-sm btn-primary" (click)="resetFilters()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-1 col-lg-1 ">
+        <button class="brn btn-sm btn-primary" (click)="resetFilters()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let job of filteredJobs | orderBy : ['-date']" (click)="seeDetails(job)" title="click for details">
+        <div class="alert alert-info">
+            <!--p><i class="small text-danger">Posted On: {{job.date | date: 'dd/MM/yyyy'}}</i></p-->
+            <p><i class="small text-danger">Posted On: {{job.date | date}}</i></p>
+            <p><b class="small">{{job.company}}</b></p>
+            <p class="small">{{job.position}}</p>
+            <p><b class="small">{{job.location}}  <i class="pull-right">{{job.experience}}</i></b></p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let job of filteredJobs | orderBy : ['-date']" (click)="seeDetails(job)" title="click for details">
-            <div class="alert alert-info">
-                <p><i class="small" style="color:red;">Posted On: {{job.date | date: 'dd/MM/yyyy'}}</i></p>
-                <p><b class="small">{{job.company}}</b></p>
-                <p class="small">{{job.position}}</p>
-                <p><b class="small">{{job.location}}  <i class="pull-right">{{job.experience}}</i></b></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section *ngIf="showDetails">
-    <button (click)="goBack()" class="btn btn-md btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-    <h3>{{walkin.title}}</h3>
-
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.company != ''">
-            <b class="list-group-item-heading">Company</b>
-            <p class="list-group-item-text">{{walkin.company}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.position != ''">
-            <b class="list-group-item-heading">Position</b>
-            <p class="list-group-item-text">{{walkin.position}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.location != ''">
-            <b class="list-group-item-heading">Location</b>
-            <p class="list-group-item-text">{{walkin.location}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.eligibility != ''">
-            <b class="list-group-item-heading">Eligibility</b>
-            <p class="list-group-item-text">{{walkin.eligibility}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.experience != ''">
-            <b class="list-group-item-heading">Experience</b>
-            <p class="list-group-item-text">{{walkin.experience}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.jobDescription != ''">
-            <b class="list-group-item-heading">Job Description</b>
-            <p class="list-group-item-text">{{walkin.jobDescription}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.jobRequirements != ''">
-            <b class="list-group-item-heading">Job Requirements</b>
-            <p class="list-group-item-text">{{walkin.jobRequirements}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.candidateProfile != ''">
-            <b class="list-group-item-heading">Candidate Profile</b>
-            <p class="list-group-item-text">{{walkin.candidateProfile}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.salary != ''">
-            <b class="list-group-item-heading">Salary</b>
-            <p class="list-group-item-text">{{walkin.salary}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.lastDate != ''">
-            <b class="list-group-item-heading">Last Date</b>
-            <p class="list-group-item-text">{{walkin.lastDate}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.walkinDate != ''">
-            <b class="list-group-item-heading">Walkin Date</b>
-            <p class="list-group-item-text">{{walkin.walkinDate}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.walkinTime != ''">
-            <b class="list-group-item-heading">Walkin Time</b>
-            <p class="list-group-item-text">{{walkin.walkinTime}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.companyProfile != ''">
-            <b class="list-group-item-heading">Company Profile</b>
-            <p class="list-group-item-text">{{walkin.companyProfile}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.howToApply != ''">
-            <b class="list-group-item-heading">How To Apply</b>
-            <p *ngIf="walkin.howToApply.indexOf('http') != -1"><button class="btn btn-link" (click)="openWebsite(walkin.howToApply)">{{walkin.howToApply}}</button></p>
-            <p *ngIf="walkin.howToApply.indexOf('http') == -1" class="list-group-item-text">{{walkin.howToApply}}</p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.website != ''">
-            <b class="list-group-item-heading">Website</b>
-            <p class="list-group-item-text"><button class="btn btn-link" (click)="openWebsite(walkin.website)">{{walkin.website}}</button></p>
-        </li>
-        <li class="list-group-item list-group-item-default" *ngIf="walkin.contactDetails != ''">
-            <b class="list-group-item-heading">Contact Details</b>
-            <p class="list-group-item-text">{{walkin.contactDetails}}</p>
-        </li>
-
-    </ul>
-    <button (click)="goBack()" class="btn btn-md btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-
-</section>
+</div>

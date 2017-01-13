@@ -8,18 +8,25 @@ import {Globals} from '../globals';
 export class HomeService {
     //urls
     private jobsListUrl = '/api/walkinsAll';
-    private host= '';
-    private port= Globals.NODE_PORT;
+    private jobUrl = '/api/walkinWithId';
+    private host = '';
+    private port = Globals.NODE_PORT;
 
     constructor(private http: Http) {
-      this.host = 'http://'+window.location.hostname+':'+this.port;
+        this.host = 'http://' + window.location.hostname + ':' + this.port;
     }
 
     getJobs(): Observable<any> {
-        return this.http.get(this.host+this.jobsListUrl )
+        return this.http.get(this.host + this.jobsListUrl)
             .map((resp: Response) => ({
                 jobs: resp.json()
             }))
+            .catch(this.handleError);
+    }
+
+    getWalkin(id: string): Observable<any> {
+        return this.http.get(this.host + this.jobUrl + '/' + id)
+            .map(this.extractData)
             .catch(this.handleError);
     }
 

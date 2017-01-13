@@ -15,3 +15,6 @@ import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //fontawesome
 import 'font-awesome/css/font-awesome.min.css';
+
+import 'intl';
+import 'intl/locale-data/jsonp/en';
