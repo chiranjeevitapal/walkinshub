@@ -7,62 +7,39 @@
 			<span class="icon-bar"></span>
 		</button>
 		<div class="navbar-header">
-			<a class="navbar-brand" href="/" title="Home">WALKINS HUB</a>
+			<a class="navbar-brand" href="/" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a>
 		</div>
-		<!--div class="collapse navbar-collapse" id="navigationbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="/register" title="Subscribe">Subscribe</a>
-				</li>
-			</ul>
-		</div-->
+
 		<div class="collapse navbar-collapse" id="navigationbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav">
 				<li>
-					<a href="/postJob" title="Subscribe">Post Job</a>
+					<a href="/postJob" title="Subscribe">Employer</a>
 				</li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login/Sign Up</b> <span class="caret"></span></a>
+					<ul id="login-dp" class="dropdown-menu">
+						<li>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-facebook-square"></i> Sign in with Facebook</button>
+										</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container-fluid -->
 </nav>
+
 <div class="container top-buffer">
-	<!--div class="well alert alert-default">
-		<form action='http://www.indeed.co.in/jobs' METHOD='GET'>
-			<input type="hidden" name="indpubnum" value="3933567626798486">
-
-			<table cellspacing='0' style='font-family: arial'>
-				<tr>
-					<td style='font-size: 16px; color: #F60'><b>what</b></td>
-					<td style='font-size: 16px; color: #F60'><b>where</b></td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td><input name='q' value='' size='25'></td>
-					<td><input name='l' value='' size=''></td>
-					<td><input type='submit' value='Find Jobs' /></td>
-				</tr>
-				<tr>
-					<td valign='top' style='font-size: 10px'>job title, keywords or company</td>
-					<td colspan='2' valign='top' style='font-size: 10px; padding: 0; margin: 0; border: 0'>
-						<table cellpadding='0' width='100%' style='padding: 0; margin: 0; border: 0'>
-							<tr>
-								<td valign='top' style='font-size: 10px; padding: 0; margin: 0; border: 0'>city, state or zip</td>
-								<td style='font-size: 13px' align='right'>
-									<span id=indeed_at>
-                                <a title="Job Search" href="http://www.indeed.co.in/?indpubnum=3933567626798486" style="text-decoration: none; color: #000">
-                                    jobs by <img alt=Indeed src='http://www.indeed.com/p/jobsearch.gif' style='border: 0; vertical-align: middle'>
-                                </a>
-                            </span>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div-->
-
 	<router-outlet></router-outlet>
 </div>
