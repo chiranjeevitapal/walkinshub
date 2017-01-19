@@ -1,30 +1,22 @@
-<div class="row">
-    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
-        <label class="control-label" for="location">Location</label>
-        <select id="location" class="form-control" name="location" #loc (change)="filterByLocation(loc.value); loc.value=''">
-              <option [ngValue]="null">All</option>
-              <option *ngFor="let job of jobs | unique:'location' | orderBy : ['location']" [value]="job.location">{{job.location}}</option>
-            </select>
+
+<button class="btn btn-primary" title="Filters" type="button" data-toggle="collapse" data-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+  <i class="fa fa-filter" aria-hidden="true"></i>
+</button>
+<div class="collapse" id="collapseFilters">
+    <h4 class="text-primary">City</h4>
+    <div class="row alert alert-warning">
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2" *ngFor="let city of cities | orderBy: '+city'; let i = index">
+            <input #citi type="checkbox" value="{{city}}" (change)="selectedCities(citi.value)"> {{city}}
+        </div>
     </div>
-    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-        <label class="control-label" for="experience">Experience</label>
-        <select id="experience" class="form-control" name="experience" #exp (change)="filterByExperience(exp.value); exp.value=''">
-              <option [ngValue]="null">All</option>
-              <option *ngFor="let job of jobs | unique:'experience' | orderBy : ['experience']" [value]="job.experience">{{job.experience}}</option>
-            </select>
-    </div>
-    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
-        <label class="control-label" for="eligibility">Eligibility</label>
-        <select id="eligibility" class="form-control" name="eligibility" #ele (change)="filterByEligibility(ele.value); ele.value=''">
-              <option [ngValue]="null">All</option>
-              <option *ngFor="let job of jobs | unique:'eligibility' | orderBy : ['eligibility']" [value]="job.eligibility">{{job.eligibility}}</option>
-            </select>
-    </div>
-    <div class="form-group col-xs-12 col-sm-12 col-md-1 col-lg-1 ">
-        <button class="brn btn-sm btn-primary" (click)="resetFilters()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    <h4 class="text-primary">Education</h4>
+    <div class="row alert alert-success">
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2" *ngFor="let edu of education | orderBy: '-edu'; let i = index">
+            <input #educ type="checkbox" value="{{edu}}" (change)="selectedEducation(educ.value)"> {{edu}}
+        </div>
     </div>
 </div>
-<div class="row">
+<div class="row top-buffer">
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let job of filteredJobs | orderBy : ['-date']" (click)="seeDetails(job)" title="click for details">
         <div class="alert alert-info">
             <!--p><i class="small text-danger">Posted On: {{job.date | date: 'dd/MM/yyyy'}}</i></p-->

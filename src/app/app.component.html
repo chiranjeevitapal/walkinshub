@@ -16,22 +16,36 @@
 					<a href="/postJob" title="Subscribe">Employer</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
+			<!--<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown" *ngIf="!isLoggedIn">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login/Sign Up</b> <span class="caret"></span></a>
 					<ul id="login-dp" class="dropdown-menu">
 						<li>
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 										<div class="form-group">
-											<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-facebook-square"></i> Sign in with Facebook</button>
+											<button type="submit" (click)="checkLoginState()" class="btn btn-primary btn-block"><i class="fa fa-facebook-square"></i> Sign in with Facebook</button>
 										</div>
 								</div>
 							</div>
 						</li>
 					</ul>
 				</li>
-			</ul>
+				<li class="dropdown" *ngIf="isLoggedIn">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="userImg" src="" class="profile-image img-circle"/> <b id="username"></b> <span class="caret"></span></a>
+					<ul id="login-dp" class="dropdown-menu">
+						<li>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<div class="form-group">
+											<button type="submit" (click)="logOut()" class="btn btn-primary btn-block"><i class="fa fa-facebook-square"></i> Logout</button>
+										</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>-->
 
 
 		</div>

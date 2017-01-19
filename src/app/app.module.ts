@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { WalkinDetailsComponent } from './home/walkin.details.component';
 import { routing } from './app.routing';
 import { HomeService } from './home/home.service';
+import { AppService } from './app.service';
 import { UploadService } from './upload/upload.service';
 import { RegisterService } from './register/register.service';
 import {JobFilterPipe} from './pipes/jobfilter.pipe';
@@ -28,7 +29,7 @@ import { AppComponent } from './app.component';
     ],
     declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent,
       WalkinDetailsComponent, JobFilterPipe, OrderBy, UniquePipe],
-    providers: [HomeService, UploadService, RegisterService],
+    providers: [HomeService, UploadService, RegisterService, AppService],
     bootstrap: [AppComponent],
 })
 

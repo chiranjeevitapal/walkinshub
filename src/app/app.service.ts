@@ -1,36 +1,35 @@
-import { Injectable } from '@angular/core';
-
-export type InternalStateType = {
-  [key: string]: any
-};
+import { Injectable }    from '@angular/core';
+import { Headers, Http, Response, RequestOptions  } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import {Globals} from './globals';
 
 @Injectable()
-export class AppState {
+export class AppService {
+    //urls
+    private jobsListUrl = '/auth/facebook';
+    private host = '';
+    private port = Globals.NODE_PORT;
 
-  public _state: InternalStateType = { };
+    constructor(private http: Http) {
+        this.host = 'http://' + window.location.hostname + ':' + this.port;
+    }
 
-  // already return a clone of the current state
-  public get state() {
-    return this._state = this._clone(this._state);
-  }
-  // never allow mutation
-  public set state(value) {
-    throw new Error('do not mutate the `.state` directly');
-  }
+    fbAuthDetails(): Observable<any> {
+        return this.http.get(this.host + this.jobsListUrl)
+            .map((resp: Response) => ({
+                jobs: resp.json()
+            }))
+            .catch(this.handleError);
+    }
 
-  public get(prop?: any) {
-    // use our state getter for the clone
-    const state = this.state;
-    return state.hasOwnProperty(prop) ? state[prop] : state;
-  }
+    private extractData(res: Response) {
+        let body = res.json();
+        return body || {};
+    }
 
-  public set(prop: string, value: any) {
-    // internally mutate our state
-    return this._state[prop] = value;
-  }
 
-  private _clone(object: InternalStateType) {
-    // simple object clone
-    return JSON.parse(JSON.stringify( object ));
-  }
+    private handleError(error: Response) {
+        console.error(error);
+        return Observable.throw(error.json().error || 'error');
+    }
 }

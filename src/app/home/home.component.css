@@ -12,3 +12,5 @@
     background-color: #122b40;
     border-color: #122b40; /*set the color you want here*/
 }
+
+.top-buffer { margin-top:20px; }
