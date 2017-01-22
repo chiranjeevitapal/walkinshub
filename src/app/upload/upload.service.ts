@@ -11,6 +11,7 @@ export class UploadService {
     private postWalkinUrl = '/api/postWalkin';
     private scrapeWalkinUrl = '/api/scrape';
     private scrapeAllWalkinsUrl = '/api/scrapeAll';
+    private todayWalkinsObjectUrl = '/api/scrapeTodayUrls';
 
     private host= '';
     private port= Globals.NODE_PORT;
@@ -32,6 +33,12 @@ export class UploadService {
     scrapeWeb(websiteName: string, websiteLink: string): Observable<Walkin> {
         //let urlParams = paramsToQueryString(params);
         return this.http.get(this.host+this.scrapeWalkinUrl + '/' + websiteName + "/" + websiteLink)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    getAllJobLinks(websiteName: string): Observable<string[]> {
+        return this.http.get(this.host+this.todayWalkinsObjectUrl + '/' + websiteName)
             .map(this.extractData)
             .catch(this.handleError);
     }

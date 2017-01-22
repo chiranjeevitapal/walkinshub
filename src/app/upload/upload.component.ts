@@ -115,4 +115,30 @@ export class UploadComponent implements OnInit {
             },
             error => this.errorMessage = <any>error);
     }
+
+    scrapeAndSave(model: Walkin) {
+        this.uploadService.getAllJobLinks(model.websiteName)
+            .subscribe(
+            data => {
+                data.forEach(walkinLink => {
+                    this.uploadService.scrapeWeb(model.websiteName, walkinLink)
+                        .subscribe(
+                        walkinsObj => {
+                            console.log(walkinsObj);
+                            this.uploadService.postWalkin(walkinsObj)
+                                .subscribe(
+                                successUpload => {
+
+                                },
+                                error => this.errorMessage = <any>error
+                              );
+
+                        },
+                        error => this.errorMessage = <any>error
+                        );
+                })
+                alert("Data Uploaded..");
+            },
+            error => this.errorMessage = <any>error);
+    }
 }
