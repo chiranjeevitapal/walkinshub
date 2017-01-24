@@ -30,6 +30,10 @@ export class HomeService {
             .catch(this.handleError);
     }
 
+    getNativeWindow() {
+        return window;
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || {};

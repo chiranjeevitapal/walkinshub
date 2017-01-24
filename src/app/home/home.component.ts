@@ -25,8 +25,10 @@ export class HomeComponent {
     filteredCities: string[];
     education: string[];
     filteredEducation: string[];
+    nativeWindow: any;
 
     constructor(private router: Router, private homeService: HomeService) {
+      this.nativeWindow = homeService.getNativeWindow();
         this.loadJobs();
         this.cities = [];
         this.filteredCities = [];
@@ -53,7 +55,8 @@ export class HomeComponent {
     }
     seeDetails(walkinObj) {
         let link = ['/walkin', walkinObj._id];
-        this.router.navigate(link);
+        //this.router.navigate(link);
+        this.nativeWindow.open('/walkin/'+walkinObj._id);
     }
 
 
