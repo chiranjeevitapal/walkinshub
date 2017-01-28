@@ -6,11 +6,4 @@
 	background-color: #E4EDF9;
 }
 
-.alert-info:hover, .alert-info:focus, .alert-info:active, .alert-info.info {
-		cursor: pointer;
-    color: #fff;
-    background-color: #122b40;
-    border-color: #122b40; /*set the color you want here*/
-}
-
 .top-buffer { margin-top:20px; }

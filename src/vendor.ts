@@ -12,7 +12,7 @@ import 'jquery';
 //Bootstrap
 import 'bootstrap/dist/js/bootstrap';
 //Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 //fontawesome
 import 'font-awesome/css/font-awesome.min.css';
 
