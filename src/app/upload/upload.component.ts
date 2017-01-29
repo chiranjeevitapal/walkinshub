@@ -131,7 +131,7 @@ export class UploadComponent implements OnInit {
 
                                 },
                                 error => this.errorMessage = <any>error
-                              );
+                                );
 
                         },
                         error => this.errorMessage = <any>error
@@ -140,5 +140,16 @@ export class UploadComponent implements OnInit {
                 alert("Data Uploaded..");
             },
             error => this.errorMessage = <any>error);
+    }
+
+    notify() {
+        this.uploadService.notifySubscribers()
+            .subscribe(
+            data => {
+                alert(data+" Notified Subscribers");
+            },
+            error => {
+              alert("Notification Failed");
+            });
     }
 }
