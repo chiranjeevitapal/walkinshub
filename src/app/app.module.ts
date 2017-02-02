@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
 import { WalkinDetailsComponent } from './home/walkin.details.component';
+import { TutorialsComponent } from './tutorials/tutorials.component';
 import { routing } from './app.routing';
 import { HomeService } from './home/home.service';
 import { AppService } from './app.service';
@@ -28,7 +29,7 @@ import { AppComponent } from './app.component';
         routing
     ],
     declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent,
-      WalkinDetailsComponent, JobFilterPipe, OrderBy, UniquePipe],
+      WalkinDetailsComponent, TutorialsComponent, JobFilterPipe, OrderBy, UniquePipe],
     providers: [HomeService, UploadService, RegisterService, AppService],
     bootstrap: [AppComponent],
 })
