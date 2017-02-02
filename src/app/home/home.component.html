@@ -2,13 +2,14 @@
     <button class="btn btn-success" title="Filters" type="button" data-toggle="collapse" data-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
       <i class="fa fa-filter" aria-hidden="true"></i>
     </button>
+    <button type="submit" (click)="checkLoginState()" class="btn btn-primary btn-md"><i class="fa fa-facebook-square"></i> Subscribe with Facebook</button>
     <div class="fb-like pull-right" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
 </div>
 <div class="collapse" id="collapseFilters">
     <h4 class="text-primary">City</h4>
     <div class="row alert alert-default">
         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2" *ngFor="let city of cities | orderBy: '+city'; let i = index">
-            <input #citi type="checkbox" value="{{city}}" (change)="selectedCities(citi.value)"> {{city}}
+            <input #citi type="checkbox" class="checkbox"value="{{city}}" (change)="selectedCities(citi.value)"> {{city}}
         </div>
     </div>
     <h4 class="text-primary">Education</h4>
@@ -19,19 +20,19 @@
     </div>
 </div>
 <div class="row top-buffer">
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let job of filteredJobs | orderBy : ['-date']">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" *ngFor="let job of filteredJobs | orderBy : ['-date']">
         <div class="panel panel-success">
             <div class="panel-body">
-                <!--p><i class="small text-danger">Posted On: {{job.date | date: 'dd/MM/yyyy'}}</i></p-->
-                <p class="small"><b>Posted On: {{job.date | date}}</b></p>
+                <p class="small">Posted On: <b class="text-primary">{{job.date | date}}</b></p>
                 <p><b class="small">{{job.company}}</b></p>
                 <p class="small">{{job.position}}</p>
                 <p><b class="small">{{job.location}}  <i class="pull-right">{{job.experience}}</i></b></p>
-                <button class="btn btn-info btn-xs pull-right" title="Filters" type="button" (click)="seeDetails(job)" title="click for details">
+                <button class="btn btn-primary btn-xs pull-right" title="Filters" type="button" (click)="seeDetails(job)" title="click for details">
                   Details
                 </button>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
+
 </div>

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
                 xfbml: true,
                 version: 'v2.8'
             });
+            FB.AppEvents.logPageView();
         }
     }
     authParams = new AuthModel('', '', '', '', '', true, '');
