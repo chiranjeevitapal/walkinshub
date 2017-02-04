@@ -6,8 +6,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
 import { PostJobComponent } from './home/postjob.component';
+import { ProfileComponent } from './profile/profile.component';
 import { WalkinDetailsComponent } from './home/walkin.details.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { JobSeekersComponent } from './jobseekers/jobseekers.component';
 
 const appRoutes: Routes = [
     {
@@ -31,6 +33,12 @@ const appRoutes: Routes = [
     }, {
         path: "tutorials",
         component: TutorialsComponent
+    }, {
+        path: "profile",
+        component: ProfileComponent
+    }, {
+        path: "jobseekers",
+        component: JobSeekersComponent
     }, {
         path: '',
         redirectTo: '/home',

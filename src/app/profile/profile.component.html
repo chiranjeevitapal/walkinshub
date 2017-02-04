@@ -1,0 +1,46 @@
+<form [formGroup]="profileForm" novalidate (ngSubmit)="submit(profileForm.value, profileForm.valid)">
+    <div class="row">
+        <!-- We'll add our form controls here -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label class="control-label" for="fb_first_name">First Name</label>
+                <input type="text" formControlName="fb_first_name" class="form-control">
+                <small class="text-danger" [hidden]="profileForm.controls.fb_first_name.valid || (profileForm.controls.fb_first_name.pristine && !submitted)">
+        First Name is required.
+    </small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label class="control-label" for="fb_last_name">Last Name</label>
+                <input type="text" formControlName="fb_last_name" class="form-control">
+                <small class="text-danger" [hidden]="profileForm.controls.fb_last_name.valid || (profileForm.controls.fb_last_name.pristine && !submitted)">
+        Last Name is required.
+    </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- We'll add our form controls here -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label class="control-label" for="fb_email">Email</label>
+                <input type="text" formControlName="fb_email" class="form-control">
+                <small class="text-danger" [hidden]="profileForm.controls.fb_email.valid || (profileForm.controls.fb_email.pristine && !submitted)">
+        Email is required.
+    </small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+                <button type="submit" class="btn btn-md btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>

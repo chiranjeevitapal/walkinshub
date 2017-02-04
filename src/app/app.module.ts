@@ -9,11 +9,16 @@ import { UploadComponent } from './upload/upload.component';
 import { RegisterComponent } from './register/register.component';
 import { WalkinDetailsComponent } from './home/walkin.details.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { ProfileComponent } from './profile/profile.component';
+import { JobSeekersComponent } from './jobseekers/jobseekers.component';
 import { routing } from './app.routing';
 import { HomeService } from './home/home.service';
 import { AppService } from './app.service';
 import { UploadService } from './upload/upload.service';
+import { PostJobService } from './home/postjob.service';
 import { RegisterService } from './register/register.service';
+import { ProfileService } from './profile/profile.service';
+import { FBService } from './fb.service';
 import {JobFilterPipe} from './pipes/jobfilter.pipe';
 import {OrderBy} from './pipes/orderby.pipe';
 import {UniquePipe} from './pipes/unique.pipe';
@@ -29,8 +34,8 @@ import { AppComponent } from './app.component';
         routing
     ],
     declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent,
-      WalkinDetailsComponent, TutorialsComponent, JobFilterPipe, OrderBy, UniquePipe],
-    providers: [HomeService, UploadService, RegisterService, AppService],
+      WalkinDetailsComponent, TutorialsComponent, ProfileComponent, JobSeekersComponent, JobFilterPipe, OrderBy, UniquePipe],
+    providers: [HomeService, UploadService, PostJobService, RegisterService, AppService, ProfileService, FBService],
     bootstrap: [AppComponent],
 })
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar-collapse">
 			<span class="sr-only">Toggle navigation</span>
@@ -13,17 +13,26 @@
 		<div class="collapse navbar-collapse" id="navigationbar-collapse">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="/tutorials" title="Tutorials"><b>Tutorials</b></a>
+					<a href="/tutorials" title="Tutorials"><b><i class="fa fa-graduation-cap" aria-hidden="true"></i> Tutorials</b></a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li>
-					<a href="/postJob" title="Subscribe"><b>Post a Job</b></a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle text-success" data-toggle="dropdown"><b><i class="fa fa-user" aria-hidden="true"></i> Employer</b> <span class="caret"></span></a>
+					<ul id="employer-zone" class="dropdown-menu">
+						<!--li>
+							<a href="/jobseekers" title="Subscribe"><b class="text-primary"><i class="fa fa-users" aria-hidden="true"></i> Job Seekers</b></a>
+						</li-->
+						<li>
+							<a href="/postJob" title="Subscribe"><b class="text-primary"><i class="fa fa-envelope" aria-hidden="true"></i> Post a Job</b></a>
+						</li>
+					</ul>
 				</li>
+
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown" *ngIf="!isLoggedIn">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Subscribe</b> <span class="caret"></span></a>
+				<li class="dropdown" id="notLoggedIn" style="display:none">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i class="fa fa-user" aria-hidden="true"></i> Subscribe</b> <span class="caret"></span></a>
 					<ul id="login-dp" class="dropdown-menu">
 						<li>
 							<div class="row">
@@ -36,9 +45,12 @@
 						</li>
 					</ul>
 				</li>
-				<li class="dropdown" *ngIf="isLoggedIn">
+				<li class="dropdown" id="loggedIn" style="display:none">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="userImg" src="" class="profile-image img-circle"/> <font id="username"></font> <span class="caret"></span></a>
 					<ul id="login-dp" class="dropdown-menu">
+						<!--li>
+							<a href="/profile" title="Subscribe"><b><i class="fa fa-user" aria-hidden="true"></i> Profile</b></a>
+						</li-->
 						<li>
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
