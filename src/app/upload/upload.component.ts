@@ -37,9 +37,21 @@ export class UploadComponent implements OnInit {
             jobRequirements: [''],
             candidateProfile: [''],
             websiteName: [this.websites[0]],
-            websiteLink: ['']
+            websiteLink: [''],
+            message: ['']
         });
 
+    }
+
+    sendMessage(message: string) {
+        this.uploadService.sendEmail(message)
+            .subscribe(
+            data => {
+                alert("Message sent.");
+            },
+            error => {
+              alert("Message not sent.");
+            });
     }
 
     save(model: Walkin, isValid: boolean) {

@@ -47,16 +47,14 @@
 				</li>
 				<li class="dropdown" id="loggedIn" style="display:none">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="userImg" src="" class="profile-image img-circle"/> <font id="username"></font> <span class="caret"></span></a>
-					<ul id="login-dp" class="dropdown-menu">
-						<!--li>
-							<a href="/profile" title="Subscribe"><b><i class="fa fa-user" aria-hidden="true"></i> Profile</b></a>
-						</li-->
+					<ul  class="dropdown-menu">
 						<li>
+							<a href="/profile" title="Profile"><b class="text-primary"><i class="fa fa-user" aria-hidden="true"></i> Profile</b></a>
+						</li>
+						<li class="login-dp top-buffer">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<div class="form-group">
-											<button type="submit" (click)="logOut()" class="btn btn-primary btn-block"><i class="fa fa-facebook-square"></i> Logout</button>
-										</div>
+									<button type="submit" (click)="logOut()" class="btn btn-primary btn-xs"><i class="fa fa-facebook-square"></i> Logout</button>
 								</div>
 							</div>
 						</li>

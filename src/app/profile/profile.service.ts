@@ -7,6 +7,7 @@ import {Globals} from '../globals';
 export class ProfileService {
     //urls
     private profileUrl = '/api/jobseeker';
+    private updateProfileUrl = '/api/updateprofile';
     private host = '';
     private port = Globals.NODE_PORT;
 
@@ -19,6 +20,17 @@ export class ProfileService {
             .map(this.extractData)
             .catch(this.handleError);
     }
+
+    updateProfile(profile: any): Observable<any> {
+          let bodyString = JSON.stringify({ profile }); // Stringify payload
+          let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON , { 'X- Token': 'Chinna@*27' }
+          let options = new RequestOptions({ headers: headers }); // Create a request option
+
+          return this.http.put(this.host+this.updateProfileUrl, bodyString, options) // ...using post request
+              .map(this.extractData)
+              .catch(this.handleError);
+  }
+
 
     private extractData(res: Response) {
         let body = res.json();

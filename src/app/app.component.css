@@ -1,7 +1,6 @@
 
-#login-dp{
-    padding: 14px 14px 0;
-    overflow:hidden;
+.login-dp{
+    padding-left: 20px;
 }
 
 .profile-image {
