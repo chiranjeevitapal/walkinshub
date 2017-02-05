@@ -25,14 +25,17 @@
         <button type="button" class="btn btn-md btn-primary" (click)="scrapeAndSave(myForm.value)">Scrape All</button>
         <button type="button" class="btn btn-md btn-info" (click)="notify()">Notify</button>
     </div>
-    <br/><br/>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <div class="form-group">
-            <label class="control-label" for="message">Message</label>
-            <input type="text" formControlName="message" class="form-control" #message>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label class="control-label" for="message">Message</label>
+                <input type="text" formControlName="message" class="form-control" #message>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <button type="button" class="btn btn-md btn-info" (click)="sendMessage(message.value)">Message</button>
         </div>
     </div>
-    <button type="button" class="btn btn-md btn-info" (click)="sendMessage(message.value)">Message</button>
     <br/><br/>
 
     <!-- We'll add our form controls here -->
