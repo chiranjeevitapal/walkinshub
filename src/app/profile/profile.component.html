@@ -1,3 +1,5 @@
+<div class="alert alert-success" role="alert" *ngIf="successMessage != ''">{{successMessage}}</div>
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">{{errorMessage}}</div>
 <form [formGroup]="profileForm" novalidate (ngSubmit)="save(profileForm.value, profileForm.valid)">
     <div class="row">
         <!-- First Name -->

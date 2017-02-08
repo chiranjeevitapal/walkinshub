@@ -16,6 +16,8 @@ export class ProfileComponent implements OnInit {
     constructor(private router: Router, private formBuilder: FormBuilder, private profileService: ProfileService) { }
 
     ngOnInit() {
+      this.successMessage = '';
+      this.errorMessage = '';
         this.profileForm = this.formBuilder.group({
             fb_first_name: ['', [<any>Validators.required, <any>Validators.minLength(5)]],
             fb_last_name: ['', [<any>Validators.required, <any>Validators.minLength(5)]],
