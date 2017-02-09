@@ -5,7 +5,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { PostJobService } from './postjob.service';
 
 @Component({
-    templateUrl: './postjob.component.html'
+    templateUrl: './postjob.component.html',
+    styleUrls: ['../app.component.css'],
 })
 export class PostJobComponent implements OnInit {
     public postJobForm: FormGroup;

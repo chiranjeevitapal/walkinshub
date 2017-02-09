@@ -5,14 +5,21 @@ import { HomeService } from './home.service';
 import { FBService } from '../fb.service';
 
 @Component({
-    templateUrl: './walkin.details.component.html'
+    templateUrl: './walkin.details.component.html',
+    styleUrls: ['../app.component.css']
 })
 export class WalkinDetailsComponent{
     walkin = new Walkin('',new Date(),'','','','','','','','','','','','','','','','','','','');
     errorMessage: string;
     isLoggedIn: boolean;
+    showSubscribeButton: boolean;
     constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService, private fbService: FBService) {
       this.fbService.initiate();
+      if(localStorage.getItem("user") != undefined && localStorage.getItem("user") != null){
+          this.showSubscribeButton = false;
+      }else{
+        this.showSubscribeButton = true;
+      }
     }
     checkLoginState() {
         this.fbService.checkLoginState();

@@ -4,7 +4,8 @@ import { ProfileService } from './profile.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-    templateUrl: './profile.component.html'
+    templateUrl: './profile.component.html',
+    styleUrls: ['../app.component.css']
 })
 export class ProfileComponent implements OnInit {
     profile : any;
@@ -27,6 +28,7 @@ export class ProfileComponent implements OnInit {
             fb_experience: ['', [<any>Validators.required, <any>Validators.maxLength(2)]],
             fb_about: ['', [<any>Validators.required, <any>Validators.maxLength(60)]],
             fb_skills: ['', [<any>Validators.required, <any>Validators.maxLength(50)]],
+            fb_location: ['', [<any>Validators.required, <any>Validators.maxLength(25)]],
             fb_role:['user'],
             fb_resume:['']
         });
@@ -47,7 +49,8 @@ export class ProfileComponent implements OnInit {
                   fb_qualification: [this.profile.fb_qualification, [<any>Validators.required, <any>Validators.maxLength(10)]],
                   fb_experience: [this.profile.fb_experience, [<any>Validators.required, <any>Validators.maxLength(2)]],
                   fb_about: [this.profile.fb_about, [<any>Validators.required, <any>Validators.maxLength(60)]],
-                  fb_skills: [this.profile.fb_skills, [<any>Validators.required, <any>Validators.maxLength(50)]]
+                  fb_skills: [this.profile.fb_skills, [<any>Validators.required, <any>Validators.maxLength(50)]],
+                  fb_location: [this.profile.fb_location, [<any>Validators.required, <any>Validators.maxLength(25)]]
                   //fb_role:['user'],
                   //fb_resume:['']
               });
@@ -62,9 +65,6 @@ export class ProfileComponent implements OnInit {
 
         // check if model is valid
         // if valid, call API to save customer
-        console.log(profile, isValid);
-        console.log(this.profileId);
-
         if (isValid != undefined && isValid) {
           profile.fb_id = this.profileId;
             this.profileService.updateProfile(profile)

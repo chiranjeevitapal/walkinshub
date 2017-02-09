@@ -7,7 +7,7 @@ import {OrderBy} from '../pipes/orderby.pipe';
 import {UniquePipe} from '../pipes/unique.pipe';
 import { FBService } from '../fb.service';
 @Component({
-    styleUrls: ['./home.component.css'],
+    styleUrls: ['./home.component.css','../app.component.css'],
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
@@ -27,6 +27,7 @@ export class HomeComponent {
     filteredEducation: string[];
     nativeWindow: any;
     isLoggedIn: boolean;
+    showSubscribeButton: boolean;
 
     constructor(private router: Router, private homeService: HomeService, private fbService: FBService) {
       this.fbService.initiate();
@@ -40,7 +41,11 @@ export class HomeComponent {
             'MPHIL', 'BPHARM', 'MPHARM', 'PG', 'UG', 'DIPLOMA', 'INTER', 'ANY',
             'ITI', 'DEGREE'];
         this.filteredEducation = [];
-
+        if(localStorage.getItem("user") != undefined && localStorage.getItem("user") != null){
+            this.showSubscribeButton = false;
+        }else{
+          this.showSubscribeButton = true;
+        }
     }
     checkLoginState() {
         this.fbService.checkLoginState();
