@@ -7,6 +7,7 @@ import { FBService } from '../fb.service';
 })
 export class TutorialsComponent {
     isCoreJava: boolean;
+    isAngularjs: boolean;
     isLoggedIn: boolean;
     showSubscribeButton: boolean;
     constructor(private router: Router, private fbService: FBService) {
@@ -28,9 +29,13 @@ export class TutorialsComponent {
     };
 
     showTutotials(obj) {
-        console.log(obj.value);
+        this.isCoreJava = false;
+        this.isAngularjs = false;
         if (obj.value == 'coreJava') {
             this.isCoreJava = true;
+        }
+        if (obj.value == 'angularJs') {
+            this.isAngularjs = true;
         }
     }
 }

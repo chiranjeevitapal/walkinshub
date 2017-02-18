@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import './rxjs-operators';
 import { AppService } from './app.service';
 import { FBService } from './fb.service';
 @Component({

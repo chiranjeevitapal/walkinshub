@@ -98,7 +98,6 @@ export class HomeComponent {
     }
 
     filterResults() {
-
         this.filteredJobs = [];
         this.jobs.forEach(job => {
             let cityMatch = false;
@@ -121,11 +120,9 @@ export class HomeComponent {
                 educationMatch = true;
             }
 
-            //setTimeout(() => {
             if (cityMatch && educationMatch) {
                 this.filteredJobs.push(job);
             }
-            // }, 1000);
         });
     }
 

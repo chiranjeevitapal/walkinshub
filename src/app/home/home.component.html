@@ -27,7 +27,7 @@
 <meta name="google-site-verification" content="dBwBXSsbGMxqwYBck9yEKz72TAuSugQEpVsQEdh1824" />
 <div class="row">
     <button class="card-1 btn btn-success" title="Filters" type="button" data-toggle="collapse" data-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
-      <i class="fa fa-filter" aria-hidden="true"></i>
+      <i class="fa fa-filter" aria-hidden="true"></i> Filter
     </button>
     <button *ngIf="showSubscribeButton" type="submit" (click)="checkLoginState()" class="card-1 btn btn-primary btn-sm"><i class="fa fa-facebook-square"></i> Subscribe</button>
     <div class="fb-like pull-right" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
@@ -47,7 +47,7 @@
     </div>
 </div>
 <div class="row top-buffer">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" *ngFor="let job of filteredJobs | orderBy : ['-date']">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" *ngFor="let job of filteredJobs | orderBy : ['-date', 'location']">
         <div class="panel panel-success effect2">
             <div class="panel-body">
                 <p class="small">Posted On: <b class="text-primary">{{job.date | date}}</b></p>
