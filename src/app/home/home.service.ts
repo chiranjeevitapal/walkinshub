@@ -8,7 +8,7 @@ import {Globals} from '../globals';
 export class HomeService {
     //urls
     private jobsListUrl = '/api/walkinsAll';
-    private jobUrl = '/api/walkinWithId';
+    private jobUrl = '/api/walkin';
     private host = '';
     private port = Globals.NODE_PORT;
 

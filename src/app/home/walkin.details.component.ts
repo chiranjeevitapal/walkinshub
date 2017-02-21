@@ -13,8 +13,12 @@ export class WalkinDetailsComponent{
     errorMessage: string;
     isLoggedIn: boolean;
     showSubscribeButton: boolean;
+    nativeWindow: any;
+    similarJobs: Array<any>;
     constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService, private fbService: FBService) {
       this.fbService.initiate();
+      this.nativeWindow = homeService.getNativeWindow();
+      this.similarJobs = [];
       if(localStorage.getItem("user") != undefined && localStorage.getItem("user") != null){
           this.showSubscribeButton = false;
       }else{
@@ -41,6 +45,7 @@ export class WalkinDetailsComponent{
                   this.errorMessage = ''+data.error;
                 }else{
                   this.walkin = data[0];
+                  this.loadSimilarJobs(this.walkin.date, this.walkin.location);
                   this.errorMessage = '';
                 }
 
@@ -49,6 +54,29 @@ export class WalkinDetailsComponent{
               this.errorMessage = <any>error
             })
           })
+
+    }
+    //To show similarjobs for user
+    loadSimilarJobs(date, location) {
+        this.homeService.getJobs()
+            .subscribe(
+            data => {
+                data.jobs.forEach(item => {
+                    if(item.location == location){
+                      this.similarJobs.push(item);
+                    }
+                });
+            },
+            error => this.errorMessage = <any>error);
+    }
+
+    seeDetails(walkinObj) {
+        let companyName = walkinObj.company;
+        companyName = companyName.replace(/[^a-zA-Z0-9_-]/g,'-');
+        companyName = "walk-in-drive-at-"+companyName;
+        //let link = ['/walkin', walkinObj._id];
+        //this.router.navigate(link);
+        this.nativeWindow.open('/walkin/' + companyName + '-' + walkinObj._id);
     }
 
     goBack() {

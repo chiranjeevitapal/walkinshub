@@ -26,17 +26,19 @@
 <meta name="google-site-verification" content="dtN_8kSuZli5X3rJSr_lwToXx9CCr9KApWcOWCxcNCs" />
 <meta name="google-site-verification" content="dBwBXSsbGMxqwYBck9yEKz72TAuSugQEpVsQEdh1824" />
 <div class="row">
-    <button class="card-1 btn btn-success" title="Filters" type="button" data-toggle="collapse" data-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button class="card-1 btn btn-danger" title="Filters" type="button" data-toggle="collapse" data-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
       <i class="fa fa-filter" aria-hidden="true"></i> Filter
     </button>
-    <button *ngIf="showSubscribeButton" type="submit" (click)="checkLoginState()" class="card-1 btn btn-primary btn-sm"><i class="fa fa-facebook-square"></i> Subscribe</button>
-    <div class="fb-like pull-right" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+        <button *ngIf="showSubscribeButton" type="submit" (click)="checkLoginState()" class="card-1 btn btn-primary btn-sm"><i class="fa fa-facebook-square"></i> Subscribe</button>
+        <div class="fb-like pull-right" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+    </div>
 </div>
 <div class="collapse" id="collapseFilters">
     <h4 class="text-primary">City</h4>
     <div class="row alert alert-default">
         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2" *ngFor="let city of cities | orderBy: '+city'; let i = index">
-            <input #citi type="checkbox" class="checkbox"value="{{city}}" (change)="selectedCities(citi.value)"> {{city}}
+            <input #citi type="checkbox" class="checkbox" value="{{city}}" (change)="selectedCities(citi.value)"> {{city}}
         </div>
     </div>
     <h4 class="text-primary">Education</h4>
@@ -47,14 +49,20 @@
     </div>
 </div>
 <div class="row top-buffer">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" *ngFor="let job of filteredJobs | orderBy : ['-date', 'location']">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h5><b>Walk-in drives all over India.</b> Please click on <i>Details</i> for further information.</h5>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" *ngFor="let job of filteredJobs | orderBy : ['-date', '-location']">
         <div class="panel panel-success effect2">
             <div class="panel-body">
                 <p class="small">Posted On: <b class="text-primary">{{job.date | date}}</b></p>
                 <p><b class="small">{{job.company}}</b></p>
                 <p class="small">{{job.position}}</p>
                 <p><b class="small">{{job.location}}  <i class="pull-right">{{job.experience}}</i></b></p>
-                <button class="card-1 btn btn-primary btn-xs pull-right" title="Filters" type="button" (click)="seeDetails(job)" title="click for details">
+                <button class="card-1 btn btn-success btn-xs pull-right" title="Details" type="button" (click)="seeDetails(job)" title="click for details">
                   Details
                 </button>
                 <div class="clearfix"></div>

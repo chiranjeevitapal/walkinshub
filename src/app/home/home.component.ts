@@ -7,7 +7,7 @@ import {OrderBy} from '../pipes/orderby.pipe';
 import {UniquePipe} from '../pipes/unique.pipe';
 import { FBService } from '../fb.service';
 @Component({
-    styleUrls: ['./home.component.css','../app.component.css'],
+    styleUrls: ['./home.component.css', '../app.component.css'],
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
@@ -30,8 +30,8 @@ export class HomeComponent {
     showSubscribeButton: boolean;
 
     constructor(private router: Router, private homeService: HomeService, private fbService: FBService) {
-      this.fbService.initiate();
-      this.nativeWindow = homeService.getNativeWindow();
+        this.fbService.initiate();
+        this.nativeWindow = homeService.getNativeWindow();
         this.loadJobs();
         this.cities = [];
         this.filteredCities = [];
@@ -41,10 +41,10 @@ export class HomeComponent {
             'MPHIL', 'BPHARM', 'MPHARM', 'PG', 'UG', 'DIPLOMA', 'INTER', 'ANY',
             'ITI', 'DEGREE'];
         this.filteredEducation = [];
-        if(localStorage.getItem("user") != undefined && localStorage.getItem("user") != null){
+        if (localStorage.getItem("user") != undefined && localStorage.getItem("user") != null) {
             this.showSubscribeButton = false;
-        }else{
-          this.showSubscribeButton = true;
+        } else {
+            this.showSubscribeButton = true;
         }
     }
     checkLoginState() {
@@ -71,13 +71,13 @@ export class HomeComponent {
             error => this.errorMessage = <any>error);
     }
     seeDetails(walkinObj) {
-        let link = ['/walkin', walkinObj._id];
+        let companyName = walkinObj.company;
+        companyName = companyName.replace(/[^a-zA-Z0-9_-]/g,'-');
+        companyName = "walk-in-drive-at-"+companyName;
+        //let link = ['/walkin', walkinObj._id];
         //this.router.navigate(link);
-        this.nativeWindow.open('/walkin/'+walkinObj._id);
+        this.nativeWindow.open('/walkin/' + companyName + '-' + walkinObj._id);
     }
-
-
-
 
     selectedCities(checkedOption) {
         if (this.filteredCities.indexOf(checkedOption) == -1) {
