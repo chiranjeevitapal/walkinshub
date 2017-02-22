@@ -8,6 +8,8 @@ import { FBService } from '../fb.service';
 export class TutorialsComponent {
     isCoreJava: boolean;
     isAngularjs: boolean;
+    isNodeJs: boolean;
+    isHtml5Css3: boolean;
     isLoggedIn: boolean;
     showSubscribeButton: boolean;
     constructor(private router: Router, private fbService: FBService) {
@@ -31,11 +33,19 @@ export class TutorialsComponent {
     showTutotials(obj) {
         this.isCoreJava = false;
         this.isAngularjs = false;
+        this.isNodeJs = false;
+        this.isHtml5Css3 = false;
         if (obj.value == 'coreJava') {
             this.isCoreJava = true;
         }
         if (obj.value == 'angularJs') {
             this.isAngularjs = true;
+        }
+        if (obj.value == 'nodeJs') {
+            this.isNodeJs = true;
+        }
+        if (obj.value == 'htmlCss') {
+            this.isHtml5Css3 = true;
         }
     }
 }
