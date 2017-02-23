@@ -22,6 +22,7 @@ import { FBService } from './fb.service';
 import {JobFilterPipe} from './pipes/jobfilter.pipe';
 import {OrderBy} from './pipes/orderby.pipe';
 import {UniquePipe} from './pipes/unique.pipe';
+import {ReplaceStringPipe} from './pipes/replace-string-pipe';
 
 import { AppComponent } from './app.component';
 
@@ -34,7 +35,7 @@ import { AppComponent } from './app.component';
         routing
     ],
     declarations: [AppComponent, HomeComponent, DashboardComponent, UploadComponent, RegisterComponent, PostJobComponent,
-      WalkinDetailsComponent, TutorialsComponent, ProfileComponent, JobSeekersComponent, JobFilterPipe, OrderBy, UniquePipe],
+      WalkinDetailsComponent, TutorialsComponent, ProfileComponent, JobSeekersComponent, JobFilterPipe, OrderBy, UniquePipe, ReplaceStringPipe],
     providers: [HomeService, UploadService, PostJobService, RegisterService, AppService, ProfileService, FBService],
     bootstrap: [AppComponent],
 })

@@ -5,6 +5,7 @@ import { HomeService } from './home.service';
 import {JobFilterPipe} from '../pipes/jobfilter.pipe';
 import {OrderBy} from '../pipes/orderby.pipe';
 import {UniquePipe} from '../pipes/unique.pipe';
+import {ReplaceStringPipe} from '../pipes/replace-string-pipe';
 import { FBService } from '../fb.service';
 @Component({
     styleUrls: ['./home.component.css', '../app.component.css'],
@@ -28,11 +29,13 @@ export class HomeComponent {
     nativeWindow: any;
     isLoggedIn: boolean;
     showSubscribeButton: boolean;
+    showLoading: boolean;
 
     constructor(private router: Router, private homeService: HomeService, private fbService: FBService) {
         this.fbService.initiate();
         this.nativeWindow = homeService.getNativeWindow();
         this.loadJobs();
+        this.showLoading = true;
         this.cities = [];
         this.filteredCities = [];
         this.education = ['10th', '12th', 'BA', 'BCOM', 'BBA', 'BBM', 'BSC',
@@ -69,6 +72,9 @@ export class HomeComponent {
                 });
             },
             error => this.errorMessage = <any>error);
+            setTimeout(function() {
+                this.showLoading = false;
+            }.bind(this), 3000);
     }
     seeDetails(walkinObj) {
         let companyName = walkinObj.company;

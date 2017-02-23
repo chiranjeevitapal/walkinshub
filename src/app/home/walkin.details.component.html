@@ -114,15 +114,16 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      <h3 class="text-danger">Similar jobs in {{walkin.location}}</h3>
-      <ul class="list-group">
-          <li class="list-group-item list-group-item-default" *ngFor="let job of similarJobs">
-             <b class="list-group-item-heading"></b>
-              <button class="btn btn-link" title="Details" type="button" (click)="seeDetails(job)" title="click for details">
+        <h3 class="text-danger">Similar jobs in {{walkin.location}}</h3>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-default" *ngFor="let job of similarJobs">
+                <b class="list-group-item-heading"></b>
+                <!-- <button class="btn btn-link" title="Details" type="button" (click)="seeDetails(job)" title="click for details">
                   <p class="list-group-item-text">Walk-in drive at {{job.company}}</p>
-              </button>
-          </li>
-      </ul>
+              </button> -->
+                <a href="/walkin/{{job.company | replaceStringPipe}}-{{job._id}}" target="_blank">Walk-in at {{job.company}}</a>
+            </li>
+        </ul>
     </div>
 </div>
 
@@ -134,4 +135,8 @@
     </div>
 </div>
 <!--button (click)="goBack()" class="btn btn-md btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></button-->
-<script type="text/javascript"> var infolinks_pid = 2959628; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<script type="text/javascript">
+    var infolinks_pid = 2959628;
+    var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>

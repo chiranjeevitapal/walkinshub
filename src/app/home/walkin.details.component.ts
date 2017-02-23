@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Walkin } from '../model/walkin';
 import { HomeService } from './home.service';
 import { FBService } from '../fb.service';
+import {ReplaceStringPipe} from '../pipes/replace-string-pipe';
 
 @Component({
     templateUrl: './walkin.details.component.html',
